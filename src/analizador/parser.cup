@@ -1,0 +1,51 @@
+package analizador;
+
+import objetos.Registro;
+import java.util.ArrayList;
+import java_cup.runtime.Symbol;
+
+//Codigo para el parser, variables, metodos
+parser code
+{:
+    ArrayList<Registro> lista = null;
+    
+    public void setLista(ArrayList<Registro> listaAux){
+        lista = listaAux;
+    }
+
+    public ArrayList<Registro> getLista(){
+        return lista;
+    }
+:}
+
+//Coidgo para las acciones gramaticales
+
+action code
+{:
+    ArrayList<Registro> lista = new ArrayList<>();
+    
+
+
+:}
+
+//Declaraciones 
+terminal NUMERO,IDENTIFICADOR,LINEA;
+
+
+// declaracion no terminales
+non terminal INICIO, TIPO;
+
+
+start with INICIO;
+
+//Reglas Semanticas
+
+INICIO ::= TIPO:a LINEA TIPO:b LINEA NUMERO:c LINEA NUMERO:d LINEA NUMERO:e LINEA NUMERO:f 
+                {: 
+                    Registro r = new Registro((String)a,(String)b,Double.parseDouble((String)c),Double.parseDouble((String)d),Double.parseDouble((String)e),Double.parseDouble((String)f));
+                    lista.add(r);
+                :} INICIO
+            | {:parser.setLista(lista); :} ;
+
+TIPO ::= IDENTIFICADOR:a {: RESULT = a; :}
+        |NUMERO:a {: RESULT = a; :} ;
