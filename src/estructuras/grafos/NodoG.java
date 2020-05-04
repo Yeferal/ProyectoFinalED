@@ -1,14 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package estructuras.grafos;
 
-/**
- *
- * @author yefer
- */
+import java.util.ArrayList;
+import objetos.Registro;
+
 public class NodoG {
+    ArrayList<Arista> listaAristas;
+    String idNodo;
+    Registro registro;
+    
+    public NodoG(String idNodo){
+        listaAristas = new ArrayList<>();
+        this.idNodo = idNodo;
+        //this.registro = registro;
+    }
+    
+    public void agregarArista(Arista arista){
+        listaAristas.add(arista);
+    }
+    
     
 }
