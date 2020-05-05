@@ -3,7 +3,7 @@ node [shape = circle];
 nodo1[shape = doublecircle];
 nodo2 [shape = Mcircle];
 nodo1 -> nodo2;
-nodo1 -> nodo3;
+nodo1 -> nodo3[color = red];
 nodo2 -> nodo2;
 nodo3 -> nodo2;
 nodo4 -> nodo3;

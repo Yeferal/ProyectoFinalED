@@ -4,7 +4,7 @@ package objetos;
 public class Registro {
     
     private String origen,destino;
-    private double tiempoVehiculo, tiempoPie, consumoGas, desgastePersona;
+    private double tiempoVehiculo, tiempoPie, consumoGas, desgastePersona, distancia;
 
     public Registro(String origen, String destino, double tiempoVehiculo, double tiempoPie, double consumoGas, double desgastePersona) {
         this.origen = origen;
@@ -13,8 +13,26 @@ public class Registro {
         this.tiempoPie = tiempoPie;
         this.consumoGas = consumoGas;
         this.desgastePersona = desgastePersona;
+        distancia = 5;
     }
 
+    public double getDesgastePersona() {
+        return desgastePersona;
+    }
+
+    public void setDesgastePersona(double desgastePersona) {
+        this.desgastePersona = desgastePersona;
+    }
+
+    public double getDistancia() {
+        return distancia;
+    }
+
+    public void setDistancia(double distancia) {
+        this.distancia = distancia;
+    }
+
+    
     public String getOrigen() {
         return origen;
     }

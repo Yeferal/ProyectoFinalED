@@ -142,7 +142,7 @@ public class Arbol {
                 actual.id = id;
             for (int i = 0; i < actual.getTamanio(); i++) {
                 texto += "<f"+(i*2)+"> | ";
-                texto += "<f"+(i*2+1)+"> "+actual.listaClaves.get(i).clave+" | ";
+                texto += "<f"+(i*2+1)+"> "+actual.listaClaves.get(i).ruta.texto+" | ";
                 if((i+1)==actual.getTamanio()){
                     //texto += "<f"+(i*2+2)+">"+actual.padre.listaClaves.get(0).clave+" \"]\n";
                     texto += "<f"+(i*2+2)+"> \"]\n";
@@ -154,7 +154,7 @@ public class Arbol {
                 actual.id = id;
             for (int i = 0; i < actual.getTamanio(); i++) {
                 texto += "<f"+(i*2)+"> | ";
-                texto += "<f"+(i*2+1)+"> "+actual.listaClaves.get(i).clave+" | ";
+                texto += "<f"+(i*2+1)+"> "+actual.listaClaves.get(i).ruta.texto+" | ";
                 if((i+1)==actual.getTamanio()){
                     texto += "<f"+(i*2+2)+"> \"]\n";
                     //actual.listaClaves.get(i).izquierda.padre=actual;
@@ -180,7 +180,7 @@ public class Arbol {
                 
             for (int i = 0; i < actual.getTamanio(); i++) {
                 texto += "node"+actual.id+":f"+(i*2)+" -> "+"node"+actual.listaClaves.get(i).izquierda.id+";\n";
-                System.out.println("clave: "+actual.listaClaves.get(i).clave+"    iz:"+actual.listaClaves.get(i).izquierda.id+"    de:"+actual.listaClaves.get(i).derecha.id);
+                System.out.println("clave: "+actual.listaClaves.get(i).ruta.texto+"    iz:"+actual.listaClaves.get(i).izquierda.id+"    de:"+actual.listaClaves.get(i).derecha.id);
                 if((i+1)==actual.getTamanio()){
                     texto += "node"+actual.id+":f"+(i*2+2)+" -> "+"node"+actual.listaClaves.get(i).derecha.id+";\n";
                     //texto += "<f"+(i*2+2)+"> \"]\n";
@@ -197,5 +197,36 @@ public class Arbol {
                 }
             }  
         }
+    }
+    
+    public void borrarArbol(){
+        
+        limpiar(raiz);
+        raiz =null;
+    }
+    
+    public void limpiar(Pagina actual){
+        if(actual.listaClaves.get(0).izquierda==null){
+            
+            actual.listaClaves.clear();
+        }else{
+            
+            for (int i = 0; i < actual.getTamanio(); i++) {
+                
+                recorrer(actual.listaClaves.get(i).izquierda);
+                actual.listaClaves.get(i).izquierda.listaClaves.clear();
+                actual.listaClaves.get(i).izquierda = null;
+                if((i+1)==actual.getTamanio()){
+                    id++;
+                    recorrer(actual.listaClaves.get(i).derecha);
+                    actual.listaClaves.get(i).derecha.listaClaves.clear();
+                    actual.listaClaves.get(i).derecha= null;
+                }
+            } 
+            actual.listaClaves.clear();
+            
+        }
+        
+        
     }
 }
