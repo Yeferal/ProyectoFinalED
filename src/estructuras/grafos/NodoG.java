@@ -8,7 +8,8 @@ public class NodoG {
     public ArrayList<Arista> listaAristas;
     public ArrayList<Arista> listaAristasNoDirigida;
     public String idNodo;
-    boolean paso;
+    
+    public boolean paso;
     Registro registro;
     
     public NodoG(String idNodo){

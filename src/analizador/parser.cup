@@ -40,9 +40,9 @@ start with INICIO;
 
 //Reglas Semanticas
 
-INICIO ::= TIPO:a LINEA TIPO:b LINEA NUMERO:c LINEA NUMERO:d LINEA NUMERO:e LINEA NUMERO:f 
+INICIO ::= TIPO:a LINEA TIPO:b LINEA NUMERO:c LINEA NUMERO:d LINEA NUMERO:e LINEA NUMERO:f LINEA NUMERO:g
                 {: 
-                    Registro r = new Registro((String)a,(String)b,Double.parseDouble((String)c),Double.parseDouble((String)d),Double.parseDouble((String)e),Double.parseDouble((String)f));
+                    Registro r = new Registro((String)a,(String)b,Double.parseDouble((String)c),Double.parseDouble((String)d),Double.parseDouble((String)e),Double.parseDouble((String)f),Double.parseDouble((String)g));
                     lista.add(r);
                 :} INICIO
             | {:parser.setLista(lista); :} ;

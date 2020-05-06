@@ -136,7 +136,8 @@ public class Arbol {
     
     public void recorrer(Pagina actual){
         
-        if(actual.listaClaves.get(0).izquierda==null){
+        if(actual!=null){
+            if(actual.listaClaves.get(0).izquierda==null){
             
                 texto += "node"+id+"[label = \"";
                 actual.id = id;
@@ -149,53 +150,58 @@ public class Arbol {
                 }
             }
             //id++;
-        }else{
-                texto += "node"+id+"[label = \"";
-                actual.id = id;
-            for (int i = 0; i < actual.getTamanio(); i++) {
-                texto += "<f"+(i*2)+"> | ";
-                texto += "<f"+(i*2+1)+"> "+actual.listaClaves.get(i).ruta.texto+" | ";
-                if((i+1)==actual.getTamanio()){
-                    texto += "<f"+(i*2+2)+"> \"]\n";
-                    //actual.listaClaves.get(i).izquierda.padre=actual;
+            }else{
+                    texto += "node"+id+"[label = \"";
+                    actual.id = id;
+                for (int i = 0; i < actual.getTamanio(); i++) {
+                    texto += "<f"+(i*2)+"> | ";
+                    texto += "<f"+(i*2+1)+"> "+actual.listaClaves.get(i).ruta.texto+" | ";
+                    if((i+1)==actual.getTamanio()){
+                        texto += "<f"+(i*2+2)+"> \"]\n";
+                        //actual.listaClaves.get(i).izquierda.padre=actual;
+                    }
                 }
-            }
-            for (int i = 0; i < actual.getTamanio(); i++) {
-                id++;
-                recorrer(actual.listaClaves.get(i).izquierda);
-                //id++;
-                if((i+1)==actual.getTamanio()){
+                for (int i = 0; i < actual.getTamanio(); i++) {
                     id++;
-                    recorrer(actual.listaClaves.get(i).derecha);
+                    recorrer(actual.listaClaves.get(i).izquierda);
                     //id++;
-                }
-            }  
+                    if((i+1)==actual.getTamanio()){
+                        id++;
+                        recorrer(actual.listaClaves.get(i).derecha);
+                        //id++;
+                    }
+                }  
+            }
+        }else{
+            texto += "Vacio";
         }
     }
     
     public void generarPunteros(Pagina actual){
-        if(actual.listaClaves.get(0).izquierda==null){
+        if(actual!=null){
+            if(actual.listaClaves.get(0).izquierda==null){
             
-        }else{
-                
-            for (int i = 0; i < actual.getTamanio(); i++) {
-                texto += "node"+actual.id+":f"+(i*2)+" -> "+"node"+actual.listaClaves.get(i).izquierda.id+";\n";
-                System.out.println("clave: "+actual.listaClaves.get(i).ruta.texto+"    iz:"+actual.listaClaves.get(i).izquierda.id+"    de:"+actual.listaClaves.get(i).derecha.id);
-                if((i+1)==actual.getTamanio()){
-                    texto += "node"+actual.id+":f"+(i*2+2)+" -> "+"node"+actual.listaClaves.get(i).derecha.id+";\n";
-                    //texto += "<f"+(i*2+2)+"> \"]\n";
+            }else{
+
+                for (int i = 0; i < actual.getTamanio(); i++) {
+                    texto += "node"+actual.id+":f"+(i*2)+" -> "+"node"+actual.listaClaves.get(i).izquierda.id+";\n";
+                    System.out.println("clave: "+actual.listaClaves.get(i).ruta.texto+"    iz:"+actual.listaClaves.get(i).izquierda.id+"    de:"+actual.listaClaves.get(i).derecha.id);
+                    if((i+1)==actual.getTamanio()){
+                        texto += "node"+actual.id+":f"+(i*2+2)+" -> "+"node"+actual.listaClaves.get(i).derecha.id+";\n";
+                        //texto += "<f"+(i*2+2)+"> \"]\n";
+                    }
                 }
-            }
-            for (int i = 0; i < actual.getTamanio(); i++) {
-                id++;
-                generarPunteros(actual.listaClaves.get(i).izquierda);
-                //id++;
-                if((i+1)==actual.getTamanio()){
+                for (int i = 0; i < actual.getTamanio(); i++) {
                     id++;
-                    generarPunteros(actual.listaClaves.get(i).derecha);
+                    generarPunteros(actual.listaClaves.get(i).izquierda);
                     //id++;
-                }
-            }  
+                    if((i+1)==actual.getTamanio()){
+                        id++;
+                        generarPunteros(actual.listaClaves.get(i).derecha);
+                        //id++;
+                    }
+                }  
+            }
         }
     }
     

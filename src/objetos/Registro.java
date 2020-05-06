@@ -6,14 +6,14 @@ public class Registro {
     private String origen,destino;
     private double tiempoVehiculo, tiempoPie, consumoGas, desgastePersona, distancia;
 
-    public Registro(String origen, String destino, double tiempoVehiculo, double tiempoPie, double consumoGas, double desgastePersona) {
+    public Registro(String origen, String destino, double tiempoVehiculo, double tiempoPie, double consumoGas, double desgastePersona, double distancia) {
         this.origen = origen;
         this.destino = destino;
         this.tiempoVehiculo = tiempoVehiculo;
         this.tiempoPie = tiempoPie;
         this.consumoGas = consumoGas;
         this.desgastePersona = desgastePersona;
-        distancia = 5;
+        this.distancia = distancia;
     }
 
     public double getDesgastePersona() {
@@ -71,14 +71,6 @@ public class Registro {
 
     public void setConsumoGas(double consumoGas) {
         this.consumoGas = consumoGas;
-    }
-
-    public double getDesgastePerson() {
-        return desgastePersona;
-    }
-
-    public void setDesgastePerson(double desgastePersona) {
-        this.desgastePersona = desgastePersona;
     }
     
     @Override

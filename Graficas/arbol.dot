@@ -1,4 +1,4 @@
 digraph G {
 node [shape=record];
-node0[label = "<f0> | <f1> nodo6 = nodo5 | <f2> "]
+node0[label = "<f0> | <f1> nodo3 = nodo5 | <f2> | <f3> nodo3 = nodo6 = nodo5 | <f4> "]
 }
