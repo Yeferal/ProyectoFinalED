@@ -1,0 +1,4 @@
+digraph G {
+node [shape=record];
+node0[label = "<f0> | <f1> nodo6 = nodo7 | <f2> "]
+}
