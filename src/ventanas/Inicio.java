@@ -213,6 +213,7 @@ public class Inicio extends javax.swing.JFrame {
         comboBoxTipo = new javax.swing.JComboBox<>();
         panel3 = new javax.swing.JPanel();
         botonNuevoViaje = new javax.swing.JButton();
+        botonArbol = new javax.swing.JButton();
         panel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         comboSiguiente = new javax.swing.JComboBox<>();
@@ -227,7 +228,6 @@ public class Inicio extends javax.swing.JFrame {
         menuBar = new javax.swing.JMenuBar();
         menuAbrirArchivo = new javax.swing.JMenu();
         menuItemAbrir = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -320,20 +320,31 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
+        botonArbol.setText("Arbol");
+        botonArbol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonArbolActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panel3Layout = new javax.swing.GroupLayout(panel3);
         panel3.setLayout(panel3Layout);
         panel3Layout.setHorizontalGroup(
             panel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel3Layout.createSequentialGroup()
-                .addGap(102, 102, 102)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(botonArbol)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 189, Short.MAX_VALUE)
                 .addComponent(botonNuevoViaje)
-                .addContainerGap(160, Short.MAX_VALUE))
+                .addContainerGap())
         );
         panel3Layout.setVerticalGroup(
             panel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel3Layout.createSequentialGroup()
                 .addContainerGap(33, Short.MAX_VALUE)
-                .addComponent(botonNuevoViaje)
+                .addGroup(panel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botonNuevoViaje)
+                    .addComponent(botonArbol))
                 .addContainerGap())
         );
 
@@ -390,9 +401,6 @@ public class Inicio extends javax.swing.JFrame {
         menuAbrirArchivo.add(menuItemAbrir);
 
         menuBar.add(menuAbrirArchivo);
-
-        jMenu2.setText("Edit");
-        menuBar.add(jMenu2);
 
         setJMenuBar(menuBar);
 
@@ -507,9 +515,23 @@ public class Inicio extends javax.swing.JFrame {
         
     }//GEN-LAST:event_botonDatosActionPerformed
 
+    private void botonArbolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonArbolActionPerformed
+        try {
+            Runtime rt = Runtime.getRuntime();
+            archivo.crearArchivo(arbol.busqueda(), "Graficas/arbol.dot");
+            String comando1 = "dot -Tjpg Graficas/arbol.dot -o Graficas/arbol.jpg";
+            
+            rt.exec( comando1 );
+            Desktop.getDesktop().open(new File("Graficas/arbol.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_botonArbolActionPerformed
+
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonArbol;
     private javax.swing.JButton botonDatos;
     private javax.swing.JButton botonInciarViaje;
     private javax.swing.JButton botonNuevoViaje;
@@ -519,7 +541,6 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> comboBoxTipo;
     private javax.swing.JComboBox<String> comboSiguiente;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea labelCaminata;
     private javax.swing.JLabel labelDestino;

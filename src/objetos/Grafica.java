@@ -56,34 +56,18 @@ public class Grafica extends Thread{
         
             inicio.contador=0;
         
-        //Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(label.getWidth(), label.getHeight(), Image.SCALE_SMOOTH));
         Icon icono = null;
         icono = imagen;
         
         for (Component c : inicio.label.getComponents()) {
             inicio.label.remove(c);
         }
-        inicio.label.revalidate();
-//        inicio.label.remove(0);
-        inicio.label.updateUI();//
-        //inicio.scrollPane.removeAll();
-        //inicio.label.repaint();
-        inicio.label.updateUI();
-        //inicio.label.removeAll();
-        inicio.label.setIcon(null);
-        inicio.label.repaint();
-        inicio.label.updateUI();
-        inicio.label.repaint();
-        //inicio.label.removeAll();
-        inicio.label.setIcon(icono);
-        inicio.label.repaint();
-        inicio.label.updateUI();
-        inicio.label.repaint();
-        //inicio.label.removeAll();
-        //inicio.label.repaint();
-        //inicio.scrollPane.add(inicio.label);
-        //inicio.scrollPane.setViewportView(inicio.label);
-        //inicio.scrollPane.updateUI();
+
+        //System.out.println(inicio.scrollPane.getViewport().toString());
+        //inicio.scrollPane.getViewport().removeAll();
+        JLabel lab = new JLabel(icono);
+        inicio.scrollPane.setViewportView(lab);
+        //System.out.println(inicio.scrollPane.getViewport().toString());
         
     }
     
