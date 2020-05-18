@@ -84,8 +84,8 @@ public class Arbol {
             actual.listaClaves.remove(2);
             actual.listaClaves.remove(2);
             //nuevaPaginaDe.padre = actual.padre;
-            System.out.println("clave:"+nuevo.clave);
-            System.out.println("Padre actual: "+actual.padre.listaClaves.get(0).clave);
+//            System.out.println("clave:"+nuevo.clave);
+//            System.out.println("Padre actual: "+actual.padre.listaClaves.get(0).clave);
             agregarNodoOrdenar(actual.padre, nuevo);                    //se agrega el nodo Ordenado
             
             if(actual.padre.listaClaves.size()==5){
@@ -100,24 +100,24 @@ public class Arbol {
         for (int i = 0; i < padre.getTamanio(); i++) {
             if(nuevo.clave<padre.listaClaves.get(i).clave && i==0){
                 padre.listaClaves.get(i).izquierda = nuevo.derecha;
-                System.out.println("padre: :"+padre.listaClaves.get(i).clave);
-                System.out.println("clave:"+nuevo.clave);
-                System.out.println("izquierda: "+nuevo.izquierda.toString());
+//                System.out.println("padre: :"+padre.listaClaves.get(i).clave);
+//                System.out.println("clave:"+nuevo.clave);
+//                System.out.println("izquierda: "+nuevo.izquierda.toString());
                 
                 break;
             }else if(nuevo.clave<padre.listaClaves.get(i).clave){
                 padre.listaClaves.get(i).izquierda = nuevo.derecha;
                 padre.listaClaves.get(i-1).derecha = nuevo.izquierda;
-                System.out.println("clave:"+nuevo.clave);
-                System.out.println("izquierda: "+nuevo.izquierda.toString());
-                System.out.println("derecha: "+nuevo.derecha.toString());
+//                System.out.println("clave:"+nuevo.clave);
+//                System.out.println("izquierda: "+nuevo.izquierda.toString());
+//                System.out.println("derecha: "+nuevo.derecha.toString());
                 break;
             }else if(nuevo.clave>padre.listaClaves.get(i).clave && (i+1)==padre.getTamanio()){
                 padre.listaClaves.get(i).derecha = nuevo.izquierda;
-                System.out.println("padre: :"+padre.listaClaves.get(i).clave);
-                System.out.println("clave:"+nuevo.clave);
+//                System.out.println("padre: :"+padre.listaClaves.get(i).clave);
+//                System.out.println("clave:"+nuevo.clave);
                 
-                System.out.println("derecha: "+nuevo.derecha.toString());
+//                System.out.println("derecha: "+nuevo.derecha.toString());
                 break;
             }
         }

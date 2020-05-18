@@ -479,6 +479,8 @@ public class Inicio extends javax.swing.JFrame {
        botonInciarViaje.setEnabled(true);
        recorrido.clear();
        grafo.resetearPasos();
+       arbol.borrarArbol();
+       archivo.crearArchivo(arbol.busqueda(), "Graficas/arbol.dot");
        comboSiguiente.removeAllItems();
        //calcularRecorrido();
     }//GEN-LAST:event_botonNuevoViajeActionPerformed
@@ -507,8 +509,10 @@ public class Inicio extends javax.swing.JFrame {
 
     private void botonDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDatosActionPerformed
         if(caminando){
+            //verificadorRutas.actualizarDatosCaminando(grafo.listaRutas);
             ventanaDatos.llenarDatosCaminando(verificadorRutas);
         }else{
+            //verificadorRutas.actualizarDatos(grafo.listaRutas);
             ventanaDatos.llenarDatosVehiculo(verificadorRutas);
         }
         ventanaDatos.setVisible(true);

@@ -97,55 +97,57 @@ public class VerificadorRutas {
         }
         
         for (int i = 0; i < lista.size()-1; i++) {
-            //mejores
-            if(lista.get(i).gasolina>lista.get(i+1).gasolina){
+//            System.out.println("NDODODO:    "+lista.get(i).texto+"        distancia: "+lista.get(i).distancia);
+            if(gasolinaMejor>lista.get(i+1).gasolina){
                 gasolinaMejor = lista.get(i+1).gasolina;
                 gasolinaMejorTexto = lista.get(i+1).texto;
             }
             
-            if(lista.get(i).distancia>lista.get(i+1).distancia){
+            if(distanciaMejor>lista.get(i+1).distancia){
                 distanciaMejor = lista.get(i+1).distancia;
                 distanciaMejorTexto = lista.get(i+1).texto;
             }
             
-            if(lista.get(i).distanciaGasolina>lista.get(i+1).distanciaGasolina){
+            if(gasolinaDistanciaMejor>lista.get(i+1).distanciaGasolina){
                 gasolinaDistanciaMejor = lista.get(i+1).distanciaGasolina;
                 gasolinaDistanciaMejorTexto = lista.get(i+1).texto;
             }
             
             
-            if(lista.get(i).desgaste>lista.get(i+1).desgaste){
+            if(desgasteFisicoMejor>lista.get(i+1).desgaste){
                 desgasteFisicoMejor = lista.get(i+1).desgaste;
                 desgasteFisicoMejorTexto = lista.get(i+1).texto;
             }
             
-            if(lista.get(i).distanciaDesgaste>lista.get(i+1).distanciaDesgaste){
+            if(desgasteDistanciaMejor>lista.get(i+1).distanciaDesgaste){
                 desgasteDistanciaMejor = lista.get(i+1).distanciaDesgaste;
                 desgasteDistanciaMejorTexto = lista.get(i+1).texto;
             }
+            
             //peores
-            if(lista.get(i).gasolina<lista.get(i+1).gasolina){
+            if(gasolinaPeor<lista.get(i+1).gasolina){
                 gasolinaPeor = lista.get(i+1).gasolina;
                 gasolinaPeorTexto = lista.get(i+1).texto;
             }
             
-            if(lista.get(i).distancia<lista.get(i+1).distancia){
+            if(distanciaPeor<lista.get(i+1).distancia){
                 distanciaPeor = lista.get(i+1).distancia;
                 distanciaPeorTexto = lista.get(i+1).texto;
+                
             }
             
-            if(lista.get(i).distanciaGasolina<lista.get(i+1).distanciaGasolina){
+            if(gasolinaDistanciaPeor<lista.get(i+1).distanciaGasolina){
                 gasolinaDistanciaPeor = lista.get(i+1).distanciaGasolina;
                 gasolinaDistanciaPeorTexto = lista.get(i+1).texto;
             }
             
             
-            if(lista.get(i).desgaste<lista.get(i+1).desgaste){
+            if(desgasteFisicoPeor<lista.get(i+1).desgaste){
                 desgasteFisicoPeor = lista.get(i+1).desgaste;
                 desgasteFisicoPeorTexto = lista.get(i+1).texto;
             }
             
-            if(lista.get(i).distanciaDesgaste<lista.get(i+1).distanciaDesgaste){
+            if(desgasteDistanciaPeor<lista.get(i+1).distanciaDesgaste){
                 desgasteDistanciaPeor = lista.get(i+1).distanciaDesgaste;
                 desgasteDistanciaPeorTexto = lista.get(i+1).texto;
             }

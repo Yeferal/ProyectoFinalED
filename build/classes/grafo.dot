@@ -1,7 +1,5 @@
 digraph A{
 node [shape = circle];
-nodo1 [shape = doublecircle];
-nodo5 [shape = Mcircle];
 nodo1 -> nodo2[label = "5.0"];
 nodo1 -> nodo3[label = "5.0"];
 nodo3 -> nodo2[label = "5.0"];
@@ -12,19 +10,5 @@ nodo4 -> nodo2[label = "5.0"];
 nodo6 -> nodo5[label = "5.0"];
 nodo6 -> nodo7[label = "5.0"];
 nodo8 -> nodo8[label = "5.0"];
-nodo5 [color = red];
-nodo3 [color = red];
-nodo1 [color = red];
-nodo1 [color = red];
-nodo3 [color = red];
-nodo5 [color = red];
-nodo5 [color = red];
-nodo6 [color = red];
-nodo3 [color = red];
-nodo1 [color = red];
-nodo1 [color = red];
-nodo3 [color = red];
-nodo6 [color = red];
-nodo5 [color = red];
 rankdir=LR;
 }
